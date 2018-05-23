@@ -1,16 +1,16 @@
 export default {
     s3: {
-      REGION: "YOUR_S3_UPLOADS_BUCKET_REGION",
-      BUCKET: "YOUR_S3_UPLOADS_BUCKET_NAME"
+      REGION: "us-west-2",
+      BUCKET: "serverless-notes-app-ty"
     },
     apiGateway: {
-      REGION: "YOUR_API_GATEWAY_REGION",
-      URL: "YOUR_API_GATEWAY_URL"
+      REGION: "us-west-2",
+      URL: "https://ff1zbowi4m.execute-api.us-west-2.amazonaws.com/prod"
     },
     cognito: {
-      REGION: "YOUR_COGNITO_REGION",
-      USER_POOL_ID: "YOUR_COGNITO_USER_POOL_ID",
-      APP_CLIENT_ID: "YOUR_COGNITO_APP_CLIENT_ID",
-      IDENTITY_POOL_ID: "YOUR_IDENTITY_POOL_ID"
+      REGION: "us-west-2",
+      USER_POOL_ID: "us-west-2_UDWw0JFgX",
+      APP_CLIENT_ID: "6h24m5h6aru45e59c2sk9f3tv4",
+      IDENTITY_POOL_ID: "us-west-2_UDWw0JFgX"
     }
-  };
+};
