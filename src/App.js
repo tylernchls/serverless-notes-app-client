@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import Routes from "./Routes";
+import { Auth } from "aws-amplify";
 import './App.css';
 
 class App extends Component {
@@ -10,28 +11,43 @@ class App extends Component {
     super(props);
 
     this.state = {
-      isAuthenticated: false
+      isAuthenticated: false,
+      isAuthenticating: true
     };
   }
 
-  userHasAuthenticated = authenticated => {
-    console.log('auth method fired', authenticated)
-    this.setState({ isAuthenticated: authenticated });
-    console.log('state', this.state)
+  async componentDidMount() {
+    try {
+      if (await Auth.currentSession()) {
+        this.userHasAuthenticated(true);
+      }
+    }
+    catch(e) {
+      if (e !== 'No current user') {
+        alert(e);
+      }
+    }
+    this.setState({ isAuthenticating: false });
   }
 
-  handleLogout = event => {
+  userHasAuthenticated = authenticated => {
+    this.setState({ isAuthenticated: authenticated });
+  }
+
+  handleLogout = async event => {
+    await Auth.signOut();
+  
     this.userHasAuthenticated(false);
   }
 
   render() {
-
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
       userHasAuthenticated: this.userHasAuthenticated
     };
 
     return (
+      !this.state.isAuthenticating &&
       <div className="App container">
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
