@@ -66,7 +66,7 @@ export default class Login extends Component {
             type="submit"
             isLoading={this.state.isLoading}
             text="Login"
-            loadingText="Logging in…"
+            loadingText="One sec while we log you in…"
           />
         </form>
       </div>
