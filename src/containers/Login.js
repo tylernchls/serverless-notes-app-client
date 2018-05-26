@@ -4,7 +4,7 @@ import { Auth } from "aws-amplify";
 import "./Login.css";
 
 export default class Login extends Component {
-  constructor(props) {
+  constructor(props) {    
     super(props);
 
     this.state = {
@@ -25,10 +25,10 @@ export default class Login extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-  
+
     try {
       await Auth.signIn(this.state.email, this.state.password);
-      alert(this.props.userHasAuthenticated(true));
+      this.props.userHasAuthenticated(true);
     } catch (e) {
       alert(e.message);
     }

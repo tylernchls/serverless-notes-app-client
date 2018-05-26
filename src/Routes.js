@@ -3,7 +3,6 @@ import { Switch } from "react-router-dom";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import AppliedRoute from "./components/AppliedRoute";
-
 // import Notfound from "./containers/NotFound";
 
 export default ({ childProps }) =>
