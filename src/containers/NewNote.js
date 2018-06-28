@@ -63,8 +63,8 @@ export default class NewNote extends Component {
             disabled={!this.validateForm()}
             type="submit"
             isLoading={this.state.isLoading}
-            text="Create"
-            loadingText="Creating…"
+            text="Upload"
+            loadingText="Uploading your content…"
           />
         </form>
       </div>
