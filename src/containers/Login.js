@@ -33,7 +33,7 @@ export default class Login extends Component {
       await Auth.signIn(this.state.email, this.state.password);
       let session = Auth.currentSession();
       this.props.userHasAuthenticated(true);
-      this.props.history.push("/");
+      this.props.history.push("/notes/new");
     } catch (e) {
       alert(e.message);
     }
